@@ -23,7 +23,6 @@ Creation of a date table using MSSQL. This is in response to a challenge posed o
 21. fiscal quarter
 22. is_holiday
 23. is_weekend
-Here is a screenshot of part of the table created with SQL code.
-![Media Player 29_09_2023 22_46_08](https://github.com/Izuchukwu117/date-table-challenge/assets/105235855/c79be22c-6776-41da-8da5-d142ef32d304)
+
 The query was optimized to run at a click. This was done by creating the date table (with 23 columns) using the CREATE TABLE command. Then a truncate command was introduced to clear any existing table content before inserting new contents into the table using a set of query commands from a Common Table Expressions (CTE).
 The CTE contains a list of dates from 1/1/2023 to 31/12/2023.
