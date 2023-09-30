@@ -35,11 +35,10 @@ BEGIN
 END;
 TRUNCATE TABLE date_table; 
 DECLARE @start_date date, @end_date date;
-SET @start_date='1/1/2023'; --Just change start and end dates at any time
+SET @start_date='01/01/2023'; --Just change start and end dates at any time
 SET @end_date='2023/12/31';
 WITH date_series AS
-	(SELECT value,
-		DATEADD(DAY,value,@start_date) date,
+	(SELECT DATEADD(DAY,value,@start_date) date,
 		CASE WHEN MONTH(DATEADD(DAY,value,@start_date))=1
 			AND DAY(DATEADD(DAY,value,@start_date))=1 THEN 'New Years Day'
 			WHEN MONTH(DATEADD(DAY,value,@start_date))=1
@@ -108,6 +107,5 @@ SELECT date,
 	CASE WHEN DATENAME (WEEKDAY,date) IN ('Saturday','Sunday') THEN 'TRUE'
 		ELSE 'FALSE' END
 FROM date_series;
-
 SELECT * FROM date_table
 ORDER BY date;
